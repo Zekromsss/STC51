@@ -1,0 +1,24 @@
+C51 COMPILER V9.54   AIN                                                                   05/24/2025 16:34:49 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE AIN
+OBJECT MODULE PLACED IN .\Objects\ain.obj
+COMPILER INVOKED BY: Z:\5151\C51\BIN\C51.EXE ain.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\ain.lst)
+                    - TABS(2) OBJECT(.\Objects\ain.obj)
+
+line level    source
+
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =   ----    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
