@@ -1,0 +1,74 @@
+C51 COMPILER V9.54   MAIN                                                                  05/24/2025 21:18:28 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE MAIN
+OBJECT MODULE PLACED IN .\Objects\main.obj
+COMPILER INVOKED BY: Z:\5151\C51\BIN\C51.EXE main.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\main.ls
+                    -t) TABS(2) OBJECT(.\Objects\main.obj)
+
+line level    source
+
+   1          #include <REGX52.H>
+   2          #include <INTRINS.H>
+   3          
+   4          
+   5          
+   6          void Delay(unsigned int x_ms)//@12.000MHz
+   7          {
+   8   1        unsigned char data i, j;
+   9   1        while(x_ms--){
+  10   2          i = 2;
+  11   2        j = 239;
+  12   2        do
+  13   2        {
+  14   3          while (--j);
+  15   3        } while (--i);
+  16   2      }
+  17   1      }
+  18          void Nixie(unsigned int Location,unsigned int Num)
+  19          {
+  20   1        int NUM[9]={0,0x06,0x5B,0x4F,0x66,0x6D,0x7D,0x07,0x7F};
+  21   1        switch(Location)
+  22   1        {
+  23   2          case 8:P2_4=0;P2_3=0;P2_2=0;break;
+  24   2          case 7:P2_4=0;P2_3=0;P2_2=1;break;
+  25   2          case 6:P2_4=0;P2_3=1;P2_2=0;break;
+  26   2          case 5:P2_4=0;P2_3=1;P2_2=1;break;
+  27   2          case 4:P2_4=1;P2_3=0;P2_2=0;break;
+  28   2          case 3:P2_4=1;P2_3=0;P2_2=1;break;
+  29   2          case 2:P2_4=1;P2_3=1;P2_2=0;break;
+  30   2          case 1:P2_4=1;P2_3=1;P2_2=1;break;
+  31   2        }
+  32   1        P0=NUM[Num];
+  33   1        Delay(1);
+  34   1      }
+  35          void main()
+  36          {
+  37   1        while(1){
+  38   2          Nixie(1,1);
+  39   2          Nixie(2,2);
+  40   2          Nixie(3,3);
+  41   2        }
+  42   1      }
+  43          /*
+  44          如果不加Delay（），则会有信号冲突
+  45          此时间加上，Delay是为了消影
+  46          单片机直接扫描，会耗费大量的单片机CPU时间
+  47          而有专用驱动芯片，自带显存，扫描电路，
+  48          */
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    193    ----
+   CONSTANT SIZE    =     18    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.54   MAIN                                                                  05/24/2025 21:18:28 PAGE 2   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      22
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
